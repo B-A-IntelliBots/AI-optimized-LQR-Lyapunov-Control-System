@@ -29,7 +29,14 @@ you can find the training code in ********
 ## MATLAB Simulation
 After training the neural network, the model was used to control the robot through various types of paths in MATLAB to validate the control scheme.
 You can find the simuation codes in *******
-figures below showes some of the results on a single reference and circular and infinity-shaped trajectories.
+figures below showes some of the results on a single target point and circular and infinity-shaped trajectories.
+## ROS and Gazebo simulation
+The control algorithm detailed above was transferred to ROS environment in order to run it on Raspberry Pi board and also conduct simulations in Gazebo.
+ROS nodes can be found in ***** and are organized as follows:
+main_script.py---> defines the trajectory that the robot should follow, and for each reference point it calls the control loop server till it reaches the point with a specified tolerence. It then calls the capturing server to capture images of the environment for mapping purposes.
+control_loop.py---> This node implements one step on of path-following controller for a differential-drive robot, incorportaing  LQR-control with the usgae of full state observer to estimate the unmeasured robot state (here the motors' currents) using the measured states (here wheels' velocities usinf Encoders).
+It subscribes to robot pose and velocity published by arduino node, adapts control gains based on the neural network service, and publishes motor PWM signals to arduino for accurate trajectory tracking.
+
 
 
 
