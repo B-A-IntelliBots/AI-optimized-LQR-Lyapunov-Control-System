@@ -39,6 +39,8 @@ It subscribes to robot pose and velocity published by arduino node, adapts contr
 NN_server.py---> this node is a service server node that is responsible for taking target (x,y) as inputs and returns the optimal control gains (Kp,Kth) predicted by the trained network in MLP_net.h5 file.
 capturing_server.py---> this node is a service servier node that is responsible for sweeping the camera atop the robot and capturing images of the environment then sending these images online to a Telegram bot for later usgae in 3D reconstruction.
 arduino_node.py--->This Arduino node interfaces with encoders, an MPU6050 IMU, and motor drivers to estimate odometry and control wheel actuation.It publishes the robot’s pose and filtered wheel velocities to ROS, while subscribing to PWM motor commands and servo image-capture commands.
+## Gazebo Simulation
+Before real-world implementaion of the robot, a thorough simulation is coducted via Gazebo to test the design and control scheme on physical conditions. the simulated robot and environment are shown in the following figures. 
 
 
 
