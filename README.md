@@ -21,7 +21,7 @@ This loop is concerned about generating the linear and angular reference velocit
 ### 2. Low level control loop
 This loop is concerned about governing the dynamic system to follow the reference velocity profiles as fast as possible. It incorporate LQR method with full order observer.
 ## Neural Network Training Process
-As stated previously, the neural network is responisble for selecting the optimal high level control gains that achieve a tade off between the three control objectives yeilding the best path to follow. this network takes the target (x,y) postion as input and outputs (Kp,Kth) control gains that determine how the path should look like toward the target point starting from the current point. 
+As stated previously, the neural network is responisble for selecting the optimal high level control gains that achieve a tade off between the three control objectives yeilding the best path to follow. 
 you can find the codes for gathering the dataset in ********
 then the neural network was trained using python within Google Colab, using the architechture shown below.
 you can find the training code in ********
