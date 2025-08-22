@@ -33,11 +33,10 @@ figures below showes some of the results on a single target point and circular a
 ## ROS and Gazebo simulation
 The control algorithm detailed above was transferred to ROS environment in order to run it on Raspberry Pi board and also conduct simulations in Gazebo. It is noteworthy that an arduino board is used as a bridge between (motors, sensors) and Raspberry pi running ROS).Arduino is treated as a node with in the ROS environment via serial communication.
 ROS nodes can be found in ***** and are organized as follows:
-main_script.py---> defines the trajectory that the robot should follow, and for each reference point it calls the control loop server till it reaches the point with a specified tolerence. It then calls the capturing server to capture images of the environment for mapping purposes.
-control_loop.py---> This node implements one step on of path-following controller for a differential-drive robot, incorportaing  LQR-control with the usgae of full state observer to estimate the unmeasured robot state (here the motors' currents) using the measured states (here wheels' velocities usinf Encoders).
-It subscribes to robot pose and velocity published by arduino node, adapts control gains based on the neural network service, and publishes motor PWM signals to arduino for accurate trajectory tracking.
-NN_server.py---> this node is a service server node that is responsible for taking target (x,y) as inputs and returns the optimal control gains (Kp,Kth) predicted by the trained network in MLP_net.h5 file.
-capturing_server.py---> this node is a service servier node that is responsible for sweeping the camera atop the robot and capturing images of the environment then sending these images online to a Telegram bot for later usgae in 3D reconstruction.
+main_script.py---> 
+control_loop.py---> 
+NN_server.py---> 
+capturing_server.py---> 
 arduino_node.py--->This Arduino node interfaces with encoders, an MPU6050 IMU, and motor drivers to estimate odometry and control wheel actuation.It publishes the robot’s pose and filtered wheel velocities to ROS, while subscribing to PWM motor commands and servo image-capture commands.
 ## Gazebo Simulation
 Before real-world implementaion of the robot, a thorough simulation is coducted via Gazebo to test the design and control scheme on physical conditions. the simulated robot and environment are shown in the following figures. 
