@@ -13,7 +13,7 @@ The robot path between two consequtive reference points should converge to the s
 The arrival heading angle of the robot ubon reaching the target point should be as close to the inclination angle of the straight line connecting the starting and target point. This guarantees smooth motion over consequtive target points.
 ### 3. Elapsid time
 The time taken to traverse the path between two target points should be minimal.
-"it is worth noting that these three objectives are formulated into one performance metric error facilitaing the choice of control gains later"
+**"it is worth noting that these three objectives are formulated into one performance metric error facilitaing the choice of control gains later"**
 ## Control system design
 The control system, that drives the state of the robot to the desired state, has been divided into two loops:
 ### 1. High level control loop
@@ -22,7 +22,6 @@ This loop is concerned about generating the linear and angular reference velocit
 This loop is concerned about governing the dynamic system to follow the reference velocity profiles as fast as possible. It incorporate LQR method with full order observer.
 ## Neural Network Training Process
 As stated previously, the neural network is responisble for selecting the optimal high level control gains that achieve a tade off between the three control objectives yeilding the best path to follow. this network takes the target (x,y) postion as input and outputs (Kp,Kth) control gains that determine how the path should look like toward the target point starting from the current point. 
-first of all, the training data is gathered usingn MATLAB. This done by spaning set of target points within the circle arround the robot with diameter of 1 meter, then for each target point , the error metric formulated from the control objectives is calcuated for all possible control gains (after setting lower and upper limits for each gain), then the control gains that yeilds the smallest error is saved as a ground truth for training the neural network.
 you can find the codes for gathering the dataset in ********
 then the neural network was trained using python within Google Colab, using the architechture shown below.
 you can find the training code in ********
@@ -40,11 +39,6 @@ capturing_server.py--->
 arduino_node.py--->This Arduino node interfaces with encoders, an MPU6050 IMU, and motor drivers to estimate odometry and control wheel actuation.It publishes the robot’s pose and filtered wheel velocities to ROS, while subscribing to PWM motor commands and servo image-capture commands.
 ## Gazebo Simulation
 Before real-world implementaion of the robot, a thorough simulation is coducted via Gazebo to test the design and control scheme on physical conditions. the simulated robot and environment are shown in the following figures. 
-
-
-
-
-
 
 📌 Features
 
@@ -86,30 +80,6 @@ Control & AI: LQR, Lyapunov stability criterion, Neural Networks (MLP)
 ├── gazebo/                 # Gazebo simulation world & configs
 └── README.md               # Project README file
 
-🚀 Getting Started
-1. Prerequisites
-
-MATLAB with Simulink
-
-Python 3.x
-
-ROS (Noetic / ROS2 compatible)
-
-Gazebo simulator
-
-CATIA (for CAD visualization)
-
-2. Installation
-
-Clone the repository:
-
-git clone https://github.com/yourusername/3d-reconstruction-robot.git
-cd 3d-reconstruction-robot
-
-
-Install Python dependencies:
-
-pip install -r requirements.txt
 
 ▶️ Usage
 Running MATLAB Simulation
@@ -127,15 +97,6 @@ rosrun control path_tracking.py
 
 📊 Results
 
-Successful real-time simulation of robot dynamics.
-
-Path-tracking with minimized error using LQR + Observer.
-
-Neural networks improved hyperparameter tuning for control gains.
-
-Robot design validated in Gazebo with ROS-based execution.
-
-Images collected for 3D environment reconstruction.
 
 📖 References
 
