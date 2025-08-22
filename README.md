@@ -1,14 +1,19 @@
 # AI-optimized-LQR-Lyapunov-Control-System
 
 This project aims to design, model, simulate and control a camera-equipped robotic platform designated for environment mapping purposes. The robot should autonomously navigate the environment through a prebuilt discretized path involving a halt at each specified point on the path to capture images for the environment.
-Afterdefining the project requirements and the primary purpose of the mobile platform, adifferential-drive wheeled mobile robot was selected due to its simplicity in design and control, as well as its effectiveness in achieving the intended objectives.
-This project begins with extracting the kinematic and dynamic model of the robot. Then, the control system, which will drive the states of the robot to the desired state, has been designed. The control system involves high level control loop which is concerned with generating the reference velocities profiles. This loops involves Lypunov theory and a neural-based optimization technique to set the control gains adaptively. In addition, the control system includes a low level control loop which is responisple for governing the dynamic system to acheive the desired referece velocity profile. Then thorough simulations have been conducted via MATLAB SIMULINK to validate the control scheme. After that, all work has been transferred to ROS environment " as python nodes" and a further validation processes has been conducted via Gazebo. 
+Afterdefining the project requirements and the primary purpose of the mobile platform, adifferential-drive wheeled mobile robot was selected due to its simplicity in design and control, as well as its effectiveness in achieving the intended objectives. 
 The project workflow can be divided as follows:
 ## Vehicle Modeling
 First the kinematic and dynamic models of the robot has been extracted. In this section we assumed  pure motion conditions, i.e., the robot does not encounter and slip, slide, or bounce.
 ## Control objective formulation
 This robotic platform is designated for environmental mapping purposes "3D reconstruction". For that sake, the control system should be designed to acheive the objectives related to this task. These objectives are broken down as follow
-### 
+### Trajectory adherence objective
+The robot path between two consequtive reference points should converge to the straight line connecting these two points.
+### Arrival heading angle objective
+The arrival heading angle of the robot ubon reaching the target point should be as close to the inclination angle of the straight line connecting the starting and target point. This guarantees smooth motion over consequtive target points.
+### Elapsid time
+The time taken to traverse the path between two target points should be minimal.
+
 
 
 
