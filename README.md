@@ -63,57 +63,14 @@ Before real-world implementaion of the robot, a thorough simulation is coducted 
 - The incorporation of LQR method in the low level control loop helped prioritizig energy efficiency.
   
 
-🛠️ ## Technologies Used
+## 🛠️ Technologies Used
 
 Programming: MATLAB, Python (ROS integration)
 
 Simulation: MATLAB/Simulink, ROS (Robot Operating System), Gazebo
 
-CAD Design: CATIA
-
-Control & AI: LQR, Lyapunov stability criterion, Neural Networks (MLP)
-
-📂 Project Structure
-├── docs/                   # Project documentation & reports
-├── models/                 # CATIA CAD models of the robot
-├── matlab/                 # MATLAB/Simulink models
-├── ros_ws/                 # ROS workspace with Python scripts
-├── gazebo/                 # Gazebo simulation world & configs
-└── README.md               # Project README file
 
 
-▶️ Usage
-Running MATLAB Simulation
-open('matlab/simulink_model.slx')
-sim('simulink_model')
-
-Running Gazebo with ROS
-cd ros_ws
-catkin_make
-source devel/setup.bash
-roslaunch robot_simulation gazebo.launch
-
-Running Control Node (Python)
-rosrun control path_tracking.py
-
-📊 Results
-
-
-📖 References
-
-Kalman, R. E. Linear Quadratic Regulators.
-
-Lyapunov, A. Stability Theory.
-
-Related works on differential drive robots and hybrid control.
-
-👨‍💻 Authors
-
-Bisher Alsaleh
-
-Ali Deeb
-
-Supervised by Prof. Iyad Hatem
 
 📜 License
 
