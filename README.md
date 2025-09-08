@@ -53,10 +53,13 @@ Before real-world implementaion of the robot, a thorough simulation is coducted 
 ## 🚀 Quick Start
 ### Prerequisites
 - OS/Tooling: `Python ≥3.10`
-### Installation
+### Installation and Usage
 
 + #### Clone the repository:
   `$ git clone https://github.com/B-A-IntelliBots/AI-optimized-LQR-Lyapunov-Control-System.git`
++ set the src file inside your workspace, then run "catkin_make"
++ make sure that the arduino is connected to your raspberry pi, then run the rosserial_node to establish the connection
++ run the command "roslaunch DDWMR start.launch" 
 ## 📊 Results & Benchmarks 
 - The proposed neural network-based controller surpasses the classical control methods such as (PID, fixed_gains Lyapunov) in solving stabilization task.
 - The neural network acheives a better trade off between all control objectives proposed for this project.
