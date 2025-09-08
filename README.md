@@ -74,8 +74,11 @@ Simulation: MATLAB/Simulink, ROS (Robot Operating System), Gazebo
 
 
 
-
-📜 License
-
-This project is licensed under the MIT License
-.
+## 📖 Citation
+@software{myproject2025,
+  author    = {Ali Deeb, Bisher Alsaleh}, Supervised by: {Prof. Iyad Hatem}
+  title     = {3D-Reconstruction},
+  year      = {2025},
+  publisher = {GitHub},
+  url       = {https://github.com/B-A-IntelliBots/3D-Reconstruction}
+}
