@@ -1,0 +1,9 @@
+<launch>
+
+    <node pkg="control" type="control_loop.py" name="follow_path" output="screen"/>
+    <node pkg="control" type="NN_server.py" name="Neural_network" output="screen"/>
+    <node pkg="control" type="capturing_server.py" name="imaging" output="screen"/>
+    <node pkg="control" type="main_scripts.py" name="main_control" output="screen"/>
+    
+</launch>
+
