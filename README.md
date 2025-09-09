@@ -33,38 +33,51 @@ This loop is concerned about the generation of the linear and angular reference 
   2. Low level control loop:
 This loop is concerned about governing the dynamic system to follow the reference velocity profiles as fast as possible. It incorporate LQR method with full order observer.
 - **Neural Network Training Process**
+  
 In this project, the neural network is responsible for selecting the optimal high level control gains that achieve a tade off between the three control objectives yeilding the best path to follow between the current position and the target position.
 you can find the codes for gathering the dataset for trainign in [training_data_generation](https://github.com/B-A-IntelliBots/AI-optimized-LQR-Lyapunov-Control-System/tree/main/training_data_generation)
 then the neural network was trained using python within Google Colab, using the architechture shown below.
 <div align="center">
   
-<img width="300" height="300" alt="Discretized Path Tracking" src="https://github.com/user-attachments/assets/fba1e442-bc7e-4196-b9a9-75da92416a82" />
+<img width="400" height="300" alt="Discretized Path Tracking" src="https://github.com/user-attachments/assets/fba1e442-bc7e-4196-b9a9-75da92416a82" />
 </div>
 you can find the training code in [MLP_training](https://github.com/B-A-IntelliBots/AI-optimized-LQR-Lyapunov-Control-System/tree/main/MLP_training)
 
 - **MATLAB Simulation**
+  
 After training the neural network, the model was used to control the robot through various types of paths in MATLAB to validate the control scheme.
 table below showes some results. the first row shows how the proposed neural network-based controller (PNN) surpasses classical Lyapunov and PID controllers.
 the second row shows the performance of the PNN on a discritized (Line, Circle, Infinity-shaped) trajectories.
 <div align="center">
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/6d3335b8-d84e-4205-b8ea-6548814e42f6" width="300"/></td>
-    <td><img src="https://github.com/user-attachments/assets/52a6c05c-c784-4e03-8c66-b2f9bd3c0702" width="300"/></td>
-    <td><img src="https://github.com/user-attachments/assets/6401a9af-a8e9-4320-baf4-ef5d41fa9d2b" width="300"/></td>
+    <td><img src="https://github.com/user-attachments/assets/6d3335b8-d84e-4205-b8ea-6548814e42f6" width="250"/></td>
+    <td><img src="https://github.com/user-attachments/assets/52a6c05c-c784-4e03-8c66-b2f9bd3c0702" width="250"/></td>
+    <td><img src="https://github.com/user-attachments/assets/6401a9af-a8e9-4320-baf4-ef5d41fa9d2b" width="250"/></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/6fac5055-ba62-4be5-ab09-dd86ecb1435e" width="300"/></td>
-    <td><img src="https://github.com/user-attachments/assets/76f97641-03dd-48f0-a354-a2045fa198ad" width="300"/></td>
-    <td><img src="https://github.com/user-attachments/assets/da807151-d690-4c0d-9b6c-abf44ca3762a" width="300"/></td>
+    <td><img src="https://github.com/user-attachments/assets/6fac5055-ba62-4be5-ab09-dd86ecb1435e" width="250"/></td>
+    <td><img src="https://github.com/user-attachments/assets/76f97641-03dd-48f0-a354-a2045fa198ad" width="250"/></td>
+    <td><img src="https://github.com/user-attachments/assets/da807151-d690-4c0d-9b6c-abf44ca3762a" width="250"/></td>
   </tr>
 </table>
 </div>
+
 - **ROS and Gazebo simulation**
+
 The control algorithm detailed above was transferred to ROS environment in order to run it on Raspberry Pi board and also conduct simulations in Gazebo. It is noteworthy that an arduino board is used as a bridge between (motors, sensors) and Raspberry pi running ROS).Arduino is treated as a node with in the ROS environment via serial communication.
 ROS nodes can be found in [src](https://github.com/B-A-IntelliBots/AI-optimized-LQR-Lyapunov-Control-System/tree/main/DDWMR/src)
 - **Gazebo Simulation**
-Before real-world implementaion of the robot, a thorough simulation is coducted via Gazebo to test the design and control scheme on physical conditions. the simulated robot and environment are shown in the following figures. 
+  
+Before real-world implementaion of the robot, a thorough simulation is conducted via Gazebo to test the design and control scheme on physical conditions. the simulated robot and environment are shown in the following figures. 
+
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/3716c441-91a2-4d59-bb3a-ddb8ae93d107" width="250"/></td>
+    <td><img src="https://github.com/user-attachments/assets/6ec03a10-f68e-47d6-b6be-fdb64476c3c6" width="250"/></td>
+    <td><img src="https://github.com/user-attachments/assets/55403cbf-e00e-412a-a08e-24dbadfb5e6b" width="250"/></td>
+  </tr>
+</table>
 
 ## 🚀 Quick Start
 ### Prerequisites
