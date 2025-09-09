@@ -32,21 +32,15 @@ This loop is concerned about generating the linear and angular reference velocit
 This loop is concerned about governing the dynamic system to follow the reference velocity profiles as fast as possible. It incorporate LQR method with full order observer.
 - **Neural Network Training Process**
 As stated previously, the neural network is responisble for selecting the optimal high level control gains that achieve a tade off between the three control objectives yeilding the best path to follow. 
-you can find the codes for gathering the dataset in ********
+you can find the codes for gathering the dataset in [training_data_generation](https://github.com/B-A-IntelliBots/AI-optimized-LQR-Lyapunov-Control-System/tree/main/training_data_generation)
 then the neural network was trained using python within Google Colab, using the architechture shown below.
-you can find the training code in ********
+you can find the training code in [MLP_training](https://github.com/B-A-IntelliBots/AI-optimized-LQR-Lyapunov-Control-System/tree/main/MLP_training)
 - **MATLAB Simulation**
 After training the neural network, the model was used to control the robot through various types of paths in MATLAB to validate the control scheme.
-You can find the simuation codes in *******
 figures below showes some of the results on a single target point and circular and infinity-shaped trajectories.
 - **ROS and Gazebo simulation**
 The control algorithm detailed above was transferred to ROS environment in order to run it on Raspberry Pi board and also conduct simulations in Gazebo. It is noteworthy that an arduino board is used as a bridge between (motors, sensors) and Raspberry pi running ROS).Arduino is treated as a node with in the ROS environment via serial communication.
-ROS nodes can be found in ***** and are organized as follows:
-main_script.py---> 
-control_loop.py---> 
-NN_server.py---> 
-capturing_server.py---> 
-arduino_node.py--->This Arduino node interfaces with encoders, an MPU6050 IMU, and motor drivers to estimate odometry and control wheel actuation.It publishes the robot’s pose and filtered wheel velocities to ROS, while subscribing to PWM motor commands and servo image-capture commands.
+ROS nodes can be found in [src](https://github.com/B-A-IntelliBots/AI-optimized-LQR-Lyapunov-Control-System/tree/main/DDWMR/src)
 - **Gazebo Simulation**
 Before real-world implementaion of the robot, a thorough simulation is coducted via Gazebo to test the design and control scheme on physical conditions. the simulated robot and environment are shown in the following figures. 
 
@@ -57,7 +51,7 @@ Before real-world implementaion of the robot, a thorough simulation is coducted 
 
 + #### Clone the repository:
   `$ git clone https://github.com/B-A-IntelliBots/AI-optimized-LQR-Lyapunov-Control-System.git`
-+ set the src file inside your workspace, then run "catkin_make"
++ set the DDWMR package inside your workspace, install rosserial-noetic-devel inside your workspace that is responsible for serial communication then run "catkin_make"
 + make sure that the arduino is connected to your raspberry pi, then run the rosserial_node to establish the connection
 + run the command "roslaunch DDWMR start.launch" 
 ## 📊 Results & Benchmarks 
@@ -69,7 +63,6 @@ Before real-world implementaion of the robot, a thorough simulation is coducted 
 ## 🛠️ Technologies Used
 
 Programming: MATLAB, Python (ROS integration)
-
 Simulation: MATLAB/Simulink, ROS (Robot Operating System), Gazebo
 ## 📂 Project Structure
 ```
@@ -88,8 +81,8 @@ Simulation: MATLAB/Simulink, ROS (Robot Operating System), Gazebo
 ## 📖 Citation
 @software{myproject2025,
   author    = {Ali Deeb, Bisher Alsaleh}, Supervised by: {Prof. Iyad Hatem}
-  title     = {3D-Reconstruction},
+  title     = {AI-optimized-LQR-Lyapunov-Control-System},
   year      = {2025},
   publisher = {GitHub},
-  url       = {https://github.com/B-A-IntelliBots/3D-Reconstruction}
+  url       = {https://github.com/B-A-IntelliBots/AI-optimized-LQR-Lyapunov-Control-System}
 }
