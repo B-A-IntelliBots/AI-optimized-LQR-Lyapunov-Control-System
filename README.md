@@ -71,26 +71,19 @@ Before real-world implementaion of the robot, a thorough simulation is coducted 
 Programming: MATLAB, Python (ROS integration)
 
 Simulation: MATLAB/Simulink, ROS (Robot Operating System), Gazebo
-## 📂 Project Structure  
-'''
-├ [DDWMR](https://github.com/B-A-IntelliBots/AI-optimized-LQR-Lyapunov-Control-System/tree/main/DDWMR) project package
-│   ├── src
-│   ├── srv
-│   ├── launch
+## 📂 Project Structure
+```
+├ DDWMR (main project package)
+│   ├── src (contains all node files)
+│   ├── srv (contains services file)
+│   ├── launch (contains launch file to run the project)
 │   ├── CMakelists.txt
 │   ├── package.xml
-├ [MLP_training](https://github.com/B-A-IntelliBots/AI-optimized-LQR-Lyapunov-Control-System/tree/main/MLP_training)
-├ [arduino](https://github.com/B-A-IntelliBots/AI-optimized-LQR-Lyapunov-Control-System/tree/main/arduino)
-├ [training_data_generation](https://github.com/B-A-IntelliBots/AI-optimized-LQR-Lyapunov-Control-System/tree/main/training_data_generation)
-├ README.md
-
-
-
-
-
-
-
-'''
+├ MLP_training (contains training data and training code)
+├ arduino (contains the arduino node code)
+├ training_data_generation ( codes used to generate the training data in MATLAB)
+├ README.md (this file)
+```
 
 ## 📖 Citation
 @software{myproject2025,
