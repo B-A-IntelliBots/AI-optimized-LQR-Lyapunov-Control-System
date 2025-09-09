@@ -8,7 +8,7 @@ This project aims to design, model, simulate and control a camera-equipped diffe
 The project's workflow can be divided as follows:
 - **Vehicle Modeling**
   
-First the kinematic and dynamic models of the robot has been extracted. In this section we assumed  pure motion conditions, i.e., the robot does not encounter and slip, slide, or bounce.
+First the kinematic and dynamic models of the robot has been extracted. In this section we assumed  pure motion conditions, i.e., the robot does not encounter any slip, slide, or bounce.
 - **Control objective formulation**
   
 This robotic platform is designated for environmental mapping purposes "3D reconstruction". For that sake, the control system should be designed to acheive the objectives related to this task. These objectives are broken down as follow
