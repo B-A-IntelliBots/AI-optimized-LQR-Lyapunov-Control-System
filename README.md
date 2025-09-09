@@ -13,7 +13,7 @@ The project's workflow can be divided as follows:
 First the kinematic and dynamic models of the robot has been extracted. In this section we assumed  pure motion conditions, i.e., the robot does not encounter any slip, slide, or bounce.
 - **Control objective formulation**
   
-This robotic platform is designated for environmental mapping purposes "3D reconstruction". For that sake, the control system should be designed to acheive the objectives related to this task. These objectives are broken down as follow
+This robotic platform was designated for environmental mapping purposes "3D reconstruction". For that sake, the control system was designed to achieve objectives related to this task. These objectives are broken down as follow
   1. Trajectory adherence objective:
 The robot path between two consequtive reference points should converge to the straight line connecting these two points.
   2. Arrival heading angle objective:
@@ -29,17 +29,37 @@ The time taken to traverse the path between two target points should be minimal.
   
 The control system, that drives the state of the robot to the desired state, has been divided into two loops:
   1. High level control loop:
-This loop is concerned about generating the linear and angular reference velocity profiles that guarantees carrying the robot fron the starting position to the target position. The high level control loop incorporates Lyapunov stability criterion to set stable velocity profiles using postion and orienation errors with control gains. In addtion, this loop utilizes an MLP neural network that adaptively choose the best high level control gains that yeilds the path satisfying the control objectives outlined previously.
+This loop is concerned about the generation of the linear and angular reference velocity profiles that guarantees carrying the robot from the starting position to the target position. The high level control loop incorporates Lyapunov stability criterion to set stable velocity profiles using postion and orienation errors with control gains. In addtion, this loop utilizes an MLP neural network that adaptively choose the best high level control gains that yeilds the path satisfying the control objectives outlined previously.
   2. Low level control loop:
 This loop is concerned about governing the dynamic system to follow the reference velocity profiles as fast as possible. It incorporate LQR method with full order observer.
 - **Neural Network Training Process**
-As stated previously, the neural network is responisble for selecting the optimal high level control gains that achieve a tade off between the three control objectives yeilding the best path to follow. 
-you can find the codes for gathering the dataset in [training_data_generation](https://github.com/B-A-IntelliBots/AI-optimized-LQR-Lyapunov-Control-System/tree/main/training_data_generation)
+In this project, the neural network is responsible for selecting the optimal high level control gains that achieve a tade off between the three control objectives yeilding the best path to follow between the current position and the target position.
+you can find the codes for gathering the dataset for trainign in [training_data_generation](https://github.com/B-A-IntelliBots/AI-optimized-LQR-Lyapunov-Control-System/tree/main/training_data_generation)
 then the neural network was trained using python within Google Colab, using the architechture shown below.
+<div align="center">
+  
+<img width="300" height="300" alt="Discretized Path Tracking" src="https://github.com/user-attachments/assets/fba1e442-bc7e-4196-b9a9-75da92416a82" />
+</div>
 you can find the training code in [MLP_training](https://github.com/B-A-IntelliBots/AI-optimized-LQR-Lyapunov-Control-System/tree/main/MLP_training)
+
 - **MATLAB Simulation**
 After training the neural network, the model was used to control the robot through various types of paths in MATLAB to validate the control scheme.
-figures below showes some of the results on a single target point and circular and infinity-shaped trajectories.
+table below showes some results. the first row shows how the proposed neural network-based controller (PNN) surpasses classical Lyapunov and PID controllers.
+the second row shows the performance of the PNN on a discritized (Line, Circle, Infinity-shaped) trajectories.
+<div align="center">
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/6d3335b8-d84e-4205-b8ea-6548814e42f6" width="300"/></td>
+    <td><img src="https://github.com/user-attachments/assets/52a6c05c-c784-4e03-8c66-b2f9bd3c0702" width="300"/></td>
+    <td><img src="https://github.com/user-attachments/assets/6401a9af-a8e9-4320-baf4-ef5d41fa9d2b" width="300"/></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/6fac5055-ba62-4be5-ab09-dd86ecb1435e" width="300"/></td>
+    <td><img src="https://github.com/user-attachments/assets/76f97641-03dd-48f0-a354-a2045fa198ad" width="300"/></td>
+    <td><img src="https://github.com/user-attachments/assets/da807151-d690-4c0d-9b6c-abf44ca3762a" width="300"/></td>
+  </tr>
+</table>
+</div>
 - **ROS and Gazebo simulation**
 The control algorithm detailed above was transferred to ROS environment in order to run it on Raspberry Pi board and also conduct simulations in Gazebo. It is noteworthy that an arduino board is used as a bridge between (motors, sensors) and Raspberry pi running ROS).Arduino is treated as a node with in the ROS environment via serial communication.
 ROS nodes can be found in [src](https://github.com/B-A-IntelliBots/AI-optimized-LQR-Lyapunov-Control-System/tree/main/DDWMR/src)
