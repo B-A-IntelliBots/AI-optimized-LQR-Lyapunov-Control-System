@@ -2,12 +2,14 @@
   
 # AI-optimized-LQR-Lyapunov-Control-System
 This project aims to design, model, simulate and control a camera-equipped differential robotic platform designated for environment mapping purposes. The robot autonomously navigates the environment through a prebuilt discretized path involving a halt at each specified point on the path to capture images for the environment.
+
+<img width="300" height="300" alt="Discretized Path Tracking" src="https://github.com/user-attachments/assets/437ce3ed-46cc-4fcd-a637-b37ed2ebe77c" />
 </div>
 
 # 📖 Overview & Methodology
 The project's workflow can be divided as follows:
 - **Vehicle Modeling**
-  
+
 First the kinematic and dynamic models of the robot has been extracted. In this section we assumed  pure motion conditions, i.e., the robot does not encounter any slip, slide, or bounce.
 - **Control objective formulation**
   
