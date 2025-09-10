@@ -101,6 +101,9 @@ Before real-world deployment, the robot was tested in Gazebo under realistic con
 </div>
 ---
 
+## 🎥 Demo Video
+
+
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -122,14 +125,14 @@ roslaunch DDWMR start.launch
 
 ```
 
-### 📊 Results & Benchmarks
+## 📊 Results & Benchmarks
  
 - The proposed neural network-based controller surpasses the classical control methods such as (PID, fixed_gains Lyapunov) in solving stabilization task.
 - The neural network achieves a better trade-off between all control objectives proposed for this project.
 - The incorporation of LQR method in the low level control loop helped prioritizing energy efficiency.
   
 
-### 🛠️ Technologies Used
+## 🛠️ Technologies Used
 
 - Programming: MATLAB, Python (with ROS integration)
 
@@ -137,7 +140,7 @@ roslaunch DDWMR start.launch
 
 - Hardware: Raspberry Pi, Arduino
 
-### 📂 Project Structure
+## 📂 Project Structure
 ```
 ├ DDWMR (main ROS package)
 │   ├── src          # ROS node files
@@ -152,7 +155,7 @@ roslaunch DDWMR start.launch
 
 ```
 
-### 📖 Citation
+## 📖 Citation
 
 ```
 @software{myproject2025,
