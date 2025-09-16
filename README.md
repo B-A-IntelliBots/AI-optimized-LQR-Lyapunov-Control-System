@@ -102,6 +102,11 @@ Before real-world deployment, the robot was tested in Gazebo under realistic con
 ---
 
 ## 🎥 Demo Video
+This video shows the robotics platform achieving the task of tracking a discretized path:
+<div align="center">
+   <video src="https://github.com/user-attachments/assets/48f7baca-2be3-4fd9-9b57-f03b4e0a268c"  width="300"></video>
+</div>
+
 
 
 ## 🚀 Quick Start
