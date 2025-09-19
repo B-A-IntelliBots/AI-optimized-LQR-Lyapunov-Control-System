@@ -1,5 +1,6 @@
 <div align="center">
 
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue?style=plastic)](https://opensource.org/licenses/Apache-2.0)
 ![MATLAB](https://img.shields.io/badge/v2014a-blue?style=plastic&label=MATLAB&labelColor=black)
 ![Python](https://img.shields.io/badge/v3.11-green?style=plastic&logo=python&label=Python3&labelColor=black)
 ![ROS](https://img.shields.io/badge/noetic-green?style=plastic&logo=ros&label=ROS&labelColor=black)
